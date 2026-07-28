@@ -1,4 +1,7 @@
 // models/user.model.js
+import bcrypt from 'bcrypt';
+import {objectId} from 'mongodb';
+import getDb from '../config/database.js';
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
@@ -38,4 +41,4 @@ export const userModel = {
     create: async (userData) => {
         return await User.create(userData)
     }
-}
+} 
