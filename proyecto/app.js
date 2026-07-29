@@ -1,18 +1,23 @@
+cat > src/app.js << 'EOF'
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import cookieParser from 'cookie-parser';
+import sessionsRouter from './routes/sessions.router.js';
+import eventsRouter from './routes/events.router.js';
 
 const app = express();
 
-// Middleware
+// Middlewares
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cookieParser());
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -20,7 +25,8 @@ app.get('/api/health', (req, res) => {
 });
 
 // Routes
-import routes from './routes/index.js';
-app.use('/api', routes);
+app.use('/api/sessions', sessionsRouter);
+app.use('/api/events', eventsRouter);
 
 export default app;
+EOF
