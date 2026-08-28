@@ -1,4 +1,5 @@
-events.js
+
 export const getEvents = (req, res) => {
-  res.json({ events: [] }); // Lista vacía inicial
+  res.json({ events: [] }); 
+  // Lista vacía inicial
 };

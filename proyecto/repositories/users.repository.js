@@ -1,4 +1,10 @@
 import * as usersDao from '../dao/users.dao.js';
+import mongoose from 'mongoose';
+import { UserModel } from '../models/user.model.js';
+
+const normalizeUser = (document) => {
+  if(!document) return null;
+
 
 export const create = async (userData) => {
   return await usersDao.createUser(userData);

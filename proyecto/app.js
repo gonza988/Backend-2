@@ -1,4 +1,4 @@
-cat > src/app.js << 'EOF'
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -29,4 +29,3 @@ app.use('/api/sessions', sessionsRouter);
 app.use('/api/events', eventsRouter);
 
 export default app;
-EOF
