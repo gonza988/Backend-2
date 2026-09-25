@@ -14,7 +14,8 @@ export const connectDB = async () => {
     process.exit(1); // Salir del proceso con un código de error
 }   
 };
-module.exports = { connectDB };
+
+
 /*
 export const connectDB = async () => {
     await mongoose.connect(env.mongoUrl);

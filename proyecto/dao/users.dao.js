@@ -1,13 +1,13 @@
-import * as usersDao from '../dao/users.dao.js';
+import { userModel } from '../models/user.model.js';
 
-export const create = async (userData) => {
-  return await usersDao.createUser(userData);
+export const createUser = async (userData) => {
+    return await userModel.create(userData);
 };
 
-export const getByEmail = async (email) => {
-  return await usersDao.findUserByEmail(email);
+export const findUserByEmail = async (email) => {
+    return await userModel.findByEmail(email);
 };
 
-export const getById = async (id) => {
-  return await usersDao.findUserById(id);
+export const findUserById = async (id) => {
+    return await userModel.findById(id);
 };

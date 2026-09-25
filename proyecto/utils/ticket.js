@@ -1,9 +1,8 @@
 export const generateTicketCode=() => {
 const random = Math.random()
 .toString(36)
-.subString(2,8)
+.substring(2, 10)
 .toUpperCase();
 
-return ``
-  let code = '';
+return `TICKET-${random}`;
 }

@@ -1,4 +1,5 @@
 import * as sessionsService from '../services/sessions.service.js';
+import { generateToken } from '../utils/jwt.utils.js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -57,6 +58,13 @@ export const current = async (req, res) => {
   });
 };
 
+export const getCurrentUser = async (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    payload: req.user
+  })
+}
+
 export const logout = async (req, res) => {
   res.clearCookie('currentUser', {
     httpOnly: true,
@@ -66,6 +74,6 @@ export const logout = async (req, res) => {
 
   res.status(200).json({
     status: 'success',
-    message: 'Sesión cerrada correctamente' 
+    message: 'Sesión cerrada correctamente'
   });
 };

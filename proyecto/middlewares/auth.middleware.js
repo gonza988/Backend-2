@@ -6,7 +6,7 @@ import { verifyToken } from '../utils/jwt.js';
  */
 export const auth = (req, res, next) => {
   try {
-    const token = req.cookies?.currentUser;
+    const token = req.cookies?.mi_cookie;
 
     if (!token) {
       return res.status(401).json({
@@ -14,13 +14,10 @@ export const auth = (req, res, next) => {
         message: 'No autenticado'
       });
     }
-
-    const payload = verifyToken(token);
-    req.user = {
-      id: payload.id,
-      email: payload.email,
-      role: payload.role
-    };
+const decoded=
+verifyToken(token);
+req.user=decoded
+next()
 
     next();
   } catch (error) {
