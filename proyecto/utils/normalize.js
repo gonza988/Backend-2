@@ -1,1 +1,0 @@
-export const normalizeEmail = (value) =>value.toLowerCase().trim(); {

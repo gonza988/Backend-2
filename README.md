@@ -20,7 +20,7 @@ nodemon (dev)
 
 # Variables de entorno
 Variable	Descripción	Ejemplo
-PORT	Puerto donde escucha el servidor	3000
+PORT	Puerto donde escucha el servidor	8080
 NODE_ENV	Entorno de ejecución	development / production
 MONGO_URL	Cadena de conexión a MongoDB	mongodb://localhost:27017/eventify
 JWT_SECRET	Secreto para firmar los JWT	un_secreto_largo_y_random
